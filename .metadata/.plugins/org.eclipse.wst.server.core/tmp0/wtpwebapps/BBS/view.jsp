@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP Web Site</title>
 </head>
 <body>
 	<%
@@ -39,7 +39,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">JSP Web Site</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -102,8 +102,7 @@
 					</tr>
 					<tr>
 						<td>작성일자</td>
-						<td colspan="2"><%= bbs.getBbsDate().substring(0, 11) + bbs.getBbsDate().substring(11, 13) 
-								+ "시 " + bbs.getBbsDate().substring(14, 16) + "분 " %></td>
+						<td colspan="2"><%= bbs.getBbsDate() %></td>
 					</tr>
 					<tr>
 						<td>내용</td>

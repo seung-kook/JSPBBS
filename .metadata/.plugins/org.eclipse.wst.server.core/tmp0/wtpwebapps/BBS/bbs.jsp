@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP Web Site</title>
 <style type="text/css">
 	a, a:hover {
 		color: #000000;
@@ -38,7 +38,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">JSP Web Site</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -100,8 +100,7 @@
 							<%= list.get(i).getBbsTitle() .replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
 							.replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
 						<td><%= list.get(i).getUserID() %></td>
-						<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) 
-							+ "시 " + list.get(i).getBbsDate().substring(14, 16) + "분 " %></td>
+						<td><%= list.get(i).getBbsDate() %></td>
 					</tr>
 					<%
 						}
