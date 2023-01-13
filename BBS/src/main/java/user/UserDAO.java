@@ -9,23 +9,23 @@ import java.sql.ResultSet;
 
 public class UserDAO {
 	
-	private Connection conn;              // DB¿¡ Á¢±ÙÇÏ´Â °´Ã¼
-	private PreparedStatement pstmt;     // ¹Ì¿Ï¼ºµÈ ¹®Àå °´Ã¼
-	private ResultSet rs;                // DB data¸¦ ´ãÀ» ¼ö ÀÖ´Â °´Ã¼  (Ctrl + shift + 'o') -> auto import
+	private Connection conn;              // DBì— ì ‘ê·¼í•˜ëŠ” ê°ì²´
+	private PreparedStatement pstmt;     // ë¯¸ì™„ì„±ëœ ë¬¸ì¥ ê°ì²´
+	private ResultSet rs;                // DB dataë¥¼ ë‹´ì„ ìˆ˜ ìˆëŠ” ê°ì²´  (Ctrl + shift + 'o') -> auto import
 	
 	public UserDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/BBS";
 			String dbID = "root";
 			String dbPassword = "root";
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	// ÇÏ³ªÀÇ °èÁ¤¿¡ ´ëÇÑ ·Î±×ÀÎ ½Ãµµ¸¦ ÇØÁÖ´Â ÇÔ¼ö
+	// í•˜ë‚˜ì˜ ê³„ì •ì— ëŒ€í•œ ë¡œê·¸ì¸ ì‹œë„ë¥¼ í•´ì£¼ëŠ” í•¨ìˆ˜
 	public int login(String userID, String userPassword) {
 		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
 		try {
@@ -34,15 +34,15 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) 
-					return 1; // ·Î±×ÀÎ ¼º°ø  				
+					return 1; // ë¡œê·¸ì¸ ì„±ê³µ  				
 				else
-					return 0; // ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡
+					return 0; // ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜
 			}
-			return -1; // ¾ÆÀÌµğ°¡ ¾øÀ½
+			return -1; // ì•„ì´ë””ê°€ ì—†ìŒ
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -2; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -2; // ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 
 	public int join(User user) {
@@ -58,7 +58,7 @@ public class UserDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 	
 }
