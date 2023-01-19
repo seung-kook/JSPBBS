@@ -72,7 +72,7 @@ public class BbsDAO {
 		return -1; // 데이터베이스 오류
 	}
 	
-	public ArrayList<Bbs> getlist(int pageNumber) {
+	public ArrayList<Bbs> getList(int pageNumber) {
         String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
         ArrayList<Bbs> list = new ArrayList<Bbs>();
         try {
